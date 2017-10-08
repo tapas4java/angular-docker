@@ -38,7 +38,7 @@ COPY . .
 RUN $(npm bin)/ng build --prod --build-optimizer
 
 ## Copy over the artifacts in dist folder to default nginx public folder
-RUN cp -rf dist /usr/share/nginx/html
+RUN cp -rf dist/* /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
 
