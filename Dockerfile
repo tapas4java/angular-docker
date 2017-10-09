@@ -7,7 +7,7 @@
 FROM nginx:1.13.5-alpine
 
 ## Copy app specific nginx config
-COPY nginx/nginx.conf /etc/nginx/conf.d/
+COPY nginx/default.conf /etc/nginx/conf.d/
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
@@ -43,5 +43,4 @@ RUN cp -rf dist/* /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
 
 # Expose ports.
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
